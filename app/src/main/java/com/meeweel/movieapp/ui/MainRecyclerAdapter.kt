@@ -10,6 +10,7 @@ class MainRecyclerAdapter :
     RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder>() {
 
     private var filmData: List<Film> = listOf()
+    private var onItemViewClickListener: MainScreenFragment.OnItemViewClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val binding = MainRecyclerItemBinding.inflate(
@@ -34,8 +35,21 @@ class MainRecyclerAdapter :
         fun bind(film: Film) {
             binding.apply {
                 title.text = film.title
+
+
+                root.setOnClickListener {
+                    onItemViewClickListener?.onItemViewClick(film)
+                }
             }
         }
+    }
+
+    fun setOnItemViewClickListener(onItemViewClickListener: MainScreenFragment.OnItemViewClickListener) {
+        this.onItemViewClickListener = onItemViewClickListener
+    }
+
+    fun removeOnItemViewClickListener() {
+        onItemViewClickListener = null
     }
 
     fun setData(data: List<Film>) {

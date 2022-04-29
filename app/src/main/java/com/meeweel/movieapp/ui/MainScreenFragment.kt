@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.meeweel.movieapp.R
 import com.meeweel.movieapp.databinding.MainScreenLayoutBinding
+import com.meeweel.movieapp.domain.Film
+import com.meeweel.movieapp.ui.detailsfragment.DetailsFragment
 
 class MainScreenFragment : Fragment() {
 
@@ -33,6 +36,19 @@ class MainScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        adapter.setOnItemViewClickListener(object : OnItemViewClickListener {
+            override fun onItemViewClick(filmId: Film) {
+                activity?.supportFragmentManager?.apply {
+                    beginTransaction()
+                        .replace(R.id.container, DetailsFragment.newInstance(Bundle().apply {
+                            putParcelable(DetailsFragment.BUNDLE_EXTRA, filmId)
+                        }))
+                        .addToBackStack("")
+                        .commitAllowingStateLoss()
+                }
+            }
+        })
+
         binding.mainFragmentRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.mainFragmentRecyclerView.adapter = adapter
 
@@ -56,6 +72,10 @@ class MainScreenFragment : Fragment() {
             binding.loadingLayout.visibility = View.GONE
 
         }
+    }
+
+    interface OnItemViewClickListener {
+        fun onItemViewClick(filmId: Film)
     }
 
     override fun onDestroy() {
