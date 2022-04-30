@@ -10,6 +10,8 @@ interface ApiService {
 
     @GET("api/movies?")
     @Headers("Content-type: application/json")
-    fun getFilms(@Query("type") type: String = "movies", @Query("sort") sort: String = "rating"): Single<ApiResponse> // @Query добавляет в запрос &id=$id
-
+    fun getFilms(
+        @Query("type") type: String = "movies",
+        @Query("sort") sort: String = "rating"
+    ): Single<ApiResponse> // @Query добавляет в запрос &id=$id
 }

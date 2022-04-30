@@ -81,5 +81,6 @@ class MainScreenFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        adapter.removeOnItemViewClickListener()
     }
 }

@@ -5,5 +5,5 @@ import io.reactivex.rxjava3.core.Single
 
 interface Repository {
 
-    fun getFilms() : Single<List<Film>>
+    fun getFilms(): Single<List<Film>>
 }

@@ -11,9 +11,11 @@ class BaseInterceptor private constructor() : Interceptor {
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
-        val response = chain.proceed(chain.request().newBuilder()
-            .addHeader(HOST, HOST_VALUE)
-            .addHeader(KEY, BuildConfig.API_KEY).build())
+        val response = chain.proceed(
+            chain.request().newBuilder()
+                .addHeader(HOST, HOST_VALUE)
+                .addHeader(KEY, BuildConfig.API_KEY).build()
+        )
         responseCode = response.code
         return response
     }

@@ -5,15 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.meeweel.movieapp.R
 import com.meeweel.movieapp.data.repository.FakeRepo
 import com.meeweel.movieapp.databinding.DetailsScreenLayoutBinding
 import com.meeweel.movieapp.domain.Film
-import com.meeweel.movieapp.ui.MainRecyclerAdapter
-import com.meeweel.movieapp.ui.MainViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
@@ -35,16 +32,17 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.mainFragmentRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.mainFragmentRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.mainFragmentRecyclerView.adapter = adapter
 
         val film = arguments?.getParcelable<Film>(BUNDLE_EXTRA)!!
-        with (binding) {
+        with(binding) {
 //            adapter.setData(film.actors) API выдаёт список актёров пустым, поэтому сделаю заглушку из фейка
             FakeRepo().getFilms()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ adapter.setData(it[0].actors) },{})
+                .subscribe({ adapter.setData(it[0].actors) }, {})
 
 
             title.text = film.title

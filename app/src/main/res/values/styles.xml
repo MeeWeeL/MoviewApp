@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--******************  Cast Recycler Item  ******************-->
+    <style name="castItemImageStyle">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="layout_constraintDimensionRatio">H,2:3</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/default_poster</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintBottom_toTopOf">@id/title</item>
+    </style>
+
+    <style name="castItemTitleStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/title</item>
+        <item name="android:textSize">@dimen/_18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="layout_constraintTop_toBottomOf">@id/poster</item>
+        <item name="layout_constraintStart_toStartOf">@id/poster</item>
+        <item name="layout_constraintEnd_toEndOf">@id/poster</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+
+    <!--******************  Details Fragment  ******************-->
+    <style name="detailsBackgroundImageStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:src">@drawable/default_background</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="layout_constraintDimensionRatio">H,16:11</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="detailsPosterStyle">
+        <item name="android:layout_width">@dimen/_100dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginStart">@dimen/_20dp</item>
+        <item name="android:layout_marginBottom">@dimen/_15dp</item>
+        <item name="layout_constraintDimensionRatio">@string/_h2_3</item>
+        <item name="android:src">@drawable/default_poster</item>
+        <item name="layout_constraintBottom_toTopOf">@id/label_description</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+    </style>
+
+    <style name="detailsTitleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/title_of_the_film</item>
+        <item name="android:textSize">@dimen/_28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:layout_marginStart">@dimen/_15dp</item>
+        <item name="android:layout_marginTop">@dimen/_10dp</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="detailsDateStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/_2009</item>
+        <item name="android:textColor">@color/grayy</item>
+        <item name="android:textSize">@dimen/_26sp</item>
+        <item name="android:layout_marginStart">@dimen/_20dp</item>
+        <item name="layout_constraintStart_toEndOf">@id/poster</item>
+        <item name="layout_constraintBottom_toTopOf">@id/poster</item>
+    </style>
+
+    <style name="detailsGenreStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/drama_comedy</item>
+        <item name="android:textColor">@color/grayy</item>
+        <item name="android:textSize">@dimen/_26sp</item>
+        <item name="android:layout_marginStart">@dimen/_20dp</item>
+        <item name="android:layout_marginTop">@dimen/_20dp</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toEndOf">@id/poster</item>
+        <item name="layout_constraintTop_toBottomOf">@id/date</item>
+    </style>
+
+    <style name="detailsScoreStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/_2_7_10</item>
+        <item name="android:textColor">@color/grayy</item>
+        <item name="android:textSize">@dimen/_26sp</item>
+        <item name="android:layout_marginStart">@dimen/_20dp</item>
+        <item name="android:layout_marginTop">@dimen/_20dp</item>
+        <item name="layout_constraintStart_toEndOf">@id/poster</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintTop_toBottomOf">@id/genre</item>
+    </style>
+
+    <style name="detailsLabelDescriptionStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/description</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_26sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">@dimen/_30dp</item>
+        <item name="android:layout_marginStart">@dimen/_10dp</item>
+        <item name="layout_constraintTop_toBottomOf">@id/image</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+    </style>
+
+    <style name="detailsDescriptionStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:text">@string/description</item>
+        <item name="android:textSize">@dimen/_24sp</item>
+        <item name="android:layout_marginTop">@dimen/_10dp</item>
+        <item name="android:layout_marginStart">@dimen/_10dp</item>
+        <item name="layout_constraintTop_toBottomOf">@id/label_description</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintBottom_toTopOf">@id/label_cast</item>
+    </style>
+
+    <style name="detailsLabelCastStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/cast</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_26sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginStart">@dimen/_10dp</item>
+        <item name="layout_constraintBottom_toTopOf">@id/mainFragmentRecyclerView</item>
+    </style>
+
+    <style name="detailsRecyclerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_180dp</item>
+        <item name="android:layout_marginTop">@dimen/_10dp</item>
+        <item name="android:layout_marginBottom">@dimen/_10dp</item>
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+<!--******************  Main Recycler Item  ******************-->
+    <style name="mainRecyclerItemPosterStyle">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="layout_constraintDimensionRatio">H,2:3</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/default_poster</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+    </style>
+
+    <style name="mainRecyclerItemTitleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/title</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="layout_constraintTop_toBottomOf">@id/poster</item>
+    </style>
+
+    <style name="mainRecyclerItemDateStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/default_date</item>
+        <item name="layout_constraintTop_toBottomOf">@id/title</item>
+    </style>
+</resources>
