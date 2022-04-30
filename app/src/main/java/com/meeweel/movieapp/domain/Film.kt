@@ -9,7 +9,7 @@ data class Film(
     val image: String,
     val title: String,
     val rating: String,
-    val year: Int,
+    val year: String,
     val description: String,
     val genres: List<String>,
     val actors: List<String>

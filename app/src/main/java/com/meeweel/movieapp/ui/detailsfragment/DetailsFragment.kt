@@ -7,10 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.meeweel.movieapp.R
+import com.meeweel.movieapp.data.repository.FakeRepo
 import com.meeweel.movieapp.databinding.DetailsScreenLayoutBinding
 import com.meeweel.movieapp.domain.Film
 import com.meeweel.movieapp.ui.MainRecyclerAdapter
 import com.meeweel.movieapp.ui.MainViewModel
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 class DetailsFragment : Fragment() {
 
@@ -32,8 +37,26 @@ class DetailsFragment : Fragment() {
 
         binding.mainFragmentRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.mainFragmentRecyclerView.adapter = adapter
-        arguments?.getParcelable<Film>(BUNDLE_EXTRA)?.let { film ->
-            adapter.setData(film.actors)
+
+        val film = arguments?.getParcelable<Film>(BUNDLE_EXTRA)!!
+        with (binding) {
+//            adapter.setData(film.actors) API выдаёт список актёров пустым, поэтому сделаю заглушку из фейка
+            FakeRepo().getFilms()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ adapter.setData(it[0].actors) },{})
+
+
+            title.text = film.title
+            score.text = film.rating
+            description.text = film.description
+            genre.text = film.genres.toString().removePrefix("[").removeSuffix("]")
+            date.text = film.year
+            Glide.with(binding.poster.context)
+                .load(film.image)
+                .error(R.drawable.default_background)
+                .placeholder(R.drawable.default_poster)
+                .into(this.poster)
         }
     }
 

@@ -3,6 +3,8 @@ package com.meeweel.movieapp.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.meeweel.movieapp.R
 import com.meeweel.movieapp.domain.Film
 import com.meeweel.movieapp.databinding.MainRecyclerItemBinding
 
@@ -35,7 +37,12 @@ class MainRecyclerAdapter :
         fun bind(film: Film) {
             binding.apply {
                 title.text = film.title
-
+                date.text = film.year
+                Glide.with(binding.poster.context)
+                    .load(film.image)
+                    .error(R.drawable.default_background)
+                    .placeholder(R.drawable.default_poster)
+                    .into(this.poster)
 
                 root.setOnClickListener {
                     onItemViewClickListener?.onItemViewClick(film)
