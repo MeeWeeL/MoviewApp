@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/image"
+        style="@style/detailsBackgroundImageStyle"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/poster"
+        style="@style/detailsPosterStyle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/detailsTitleStyle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/date"
+        style="@style/detailsDateStyle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/genre"
+        style="@style/detailsGenreStyle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/score"
+        style="@style/detailsScoreStyle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/label_description"
+        style="@style/detailsLabelDescriptionStyle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/description"
+        style="@style/detailsDescriptionStyle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/label_cast"
+        style="@style/detailsLabelCastStyle"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainFragmentRecyclerView"
+        style="@style/detailsRecyclerStyle"
+        tools:listitem="@layout/cast_recycler_item"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

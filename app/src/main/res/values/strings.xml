@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Movie App</string>
+    <string name="title">Title</string>
+    <string name="default_date">18 Dec 2019</string>
+    <string name="_h2_3">H,2:3</string>
+    <string name="title_of_the_film">Title of the film</string>
+    <string name="_2009">2009</string>
+    <string name="drama_comedy">Drama, Comedy</string>
+    <string name="description">Description</string>
+    <string name="cast">Cast</string>
+    <string name="_2_7_10">2.7/10</string>
 </resources>
